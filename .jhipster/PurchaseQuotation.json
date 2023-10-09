@@ -1,0 +1,59 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062557",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "purchase_quotation",
+  "fields": [
+    {
+      "fieldName": "referenceNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalPOAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalGSTAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "poDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "expectedDeliveryDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "orderStatus",
+      "fieldType": "Status",
+      "fieldValues": "REQUESTED (Requested),APPROVED (Approved),CANCELED (Canceled),RECEIVED (Received),COMPLETED (Completed)"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PurchaseQuotation",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "purchaseQuotationDetails",
+      "otherEntityRelationshipName": "purchaseQuotation",
+      "relationshipName": "purchaseQuotationDetails",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "orderRecieved",
+      "otherEntityRelationshipName": "purchaseQuotation",
+      "relationshipName": "orderRecieved",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "clients",
+      "relationshipName": "clients",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

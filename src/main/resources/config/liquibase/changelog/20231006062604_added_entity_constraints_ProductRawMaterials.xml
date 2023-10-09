@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ProductRawMaterials.
+    -->
+    <changeSet id="20231006062604-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="products_id"
+                                 baseTableName="product_raw_materials"
+                                 constraintName="fk_product_raw_materials__products_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="products"/>
+
+        <addForeignKeyConstraint baseColumnNames="raw_material_id"
+                                 baseTableName="product_raw_materials"
+                                 constraintName="fk_product_raw_materials__raw_material_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="raw_material"/>
+    </changeSet>
+</databaseChangeLog>

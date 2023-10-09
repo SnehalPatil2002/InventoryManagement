@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062604",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "product_raw_materials",
+  "fields": [
+    {
+      "fieldName": "quantityRequired",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ProductRawMaterials",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "products",
+      "otherEntityRelationshipName": "productRawMaterials",
+      "relationshipName": "products",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "rawMaterial",
+      "otherEntityRelationshipName": "productRawMaterials",
+      "relationshipName": "rawMaterial",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

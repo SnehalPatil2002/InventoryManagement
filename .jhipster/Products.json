@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062603",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "products",
+  "fields": [
+    {
+      "fieldName": "productName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "availableQty",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Products",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productRawMaterials",
+      "otherEntityRelationshipName": "products",
+      "relationshipName": "productRawMaterials",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "consumptionDetails",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "consumptionDetails",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "productPrice",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "productPrice",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "projects",
+      "otherEntityRelationshipName": "products",
+      "relationshipName": "project",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

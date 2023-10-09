@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062601",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sales_orderd",
+  "fields": [
+    {
+      "fieldName": "orderDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "quantitySold",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "unitPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "gstPercentage",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalRevenue",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "DeliveryStatus",
+      "fieldValues": "ORDERED,SHIPPED,DELIVERED"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SalesOrderd",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "clients",
+      "otherEntityRelationshipName": "salesOrderd",
+      "relationshipName": "client",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

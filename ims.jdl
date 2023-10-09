@@ -1,0 +1,184 @@
+
+entity RawMaterial {
+	 name String
+     barcode String 
+     quantity Long
+     unitPrice Double
+     unitMeasure Unit
+     gstPercentage Double 
+     reorderPoint Long 
+}
+
+entity Warehouse {
+	whName String
+    address String
+    pincode Long
+    city String
+    managerName String
+    managerEmail String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Clients {
+	sname String
+	semail String
+    mobileNo Long
+    companyName String
+    companyContactNo Long
+    address String
+	pinCode String
+	city String
+    clientType ClientType
+}
+
+entity PurchaseQuotation {
+	referenceNumber String
+    totalPOAmount Double
+    totalGSTAmount Double
+    poDate Instant
+    expectedDeliveryDate Instant
+    orderStatus Status
+}
+
+entity PurchaseQuotationDetails {
+	qtyOrdered Long
+    gstTaxPercentage Integer
+    pricePerUnit Double
+    totalPrice Double
+    discount Double
+}
+
+entity OrderRecieved {
+	referenceNumber String
+    orDate Instant
+    qtyOrdered Long
+    qtyRecieved Long
+    manufacturingDate Instant
+	expiryDate Instant
+    qtyApproved Long
+    qtyRejected Long
+}
+
+entity PurchaseRequest{
+	qtyRequired Long
+    requestDate Instant
+    expectedDate Instant
+    status Status
+}
+
+
+entity SalesOrderd {
+	orderDate Instant
+	quantitySold Long
+    unitPrice Double
+    gstPercentage Double
+    totalRevenue Double
+    status DeliveryStatus
+}
+entity Projects{
+	projectName String
+    startDate Instant
+    endDate Instant
+    orderQuantity Long
+    finalTotal Double
+}
+
+entity Products{
+	productName String
+    totalPrice Double
+    availableQty Double
+}
+
+entity ProductRawMaterials{
+	quantityRequired Long
+}
+
+entity ConsumptionDetails{
+	quantityConsumed Double
+    scrapGenerated Double
+}
+
+entity ProductPrice{
+	rawMaterialCost Double
+    manufacturingCost Double
+    labourCost Double
+}
+
+entity ProductionLine{
+	description String
+    isActive Boolean 
+}
+entity StockRequest{
+	qtyRequired Double
+    reqDate Instant
+    isProd Boolean
+    status Status
+}
+enum Unit {
+    UNIT, KG , METRE
+}
+
+enum Status{
+	REQUESTED(Requested),
+    APPROVED(Approved),
+    CANCELED(Canceled),
+    RECEIVED(Received),
+    COMPLETED(Completed)
+}
+
+enum ClientType{
+	SUPPLIER(Supplier),
+    CONSUMER(Consumer),
+    BOTH(Both),
+    OTHER(Other)
+}
+
+enum DeliveryStatus{
+	ORDERED, SHIPPED, DELIVERED
+}
+
+relationship OneToOne {
+	ProductionLine{product} to Products
+    StockRequest{rawMaterial} to RawMaterial 
+    StockRequest{product} to Products   
+	PurchaseRequest{rawMaterial} to RawMaterial
+}
+
+//relationship ManyToMany {
+//	Products{productRawMaterials} to ProductRawMaterials{products}
+//}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	PurchaseQuotation to PurchaseQuotationDetails{purchaseQuotation}
+    PurchaseQuotation to OrderRecieved{purchaseQuotation}
+    Products{productRawMaterials} to ProductRawMaterials{products}
+    RawMaterial{productRawMaterials} to ProductRawMaterials{rawMaterial}
+    Warehouse{rawMaterial} to RawMaterial{warehouse}
+    Projects{products} to Products{project}
+    Clients{salesOrderd} to SalesOrderd{client}
+    Projects to ConsumptionDetails{project}
+    Products to ConsumptionDetails{product}
+    Projects to ProductPrice{project}
+    Products to ProductPrice{product}
+    ProductionLine to StockRequest{productionLine}
+    ProductionLine to ConsumptionDetails{productionLine}
+}
+
+relationship ManyToOne {
+	PurchaseQuotation{clients} to Clients
+}
+
+// Set pagination options
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

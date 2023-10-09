@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062558",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "purchase_quotation_details",
+  "fields": [
+    {
+      "fieldName": "qtyOrdered",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gstTaxPercentage",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pricePerUnit",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "discount",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PurchaseQuotationDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "purchaseQuotation",
+      "otherEntityRelationshipName": "purchaseQuotationDetails",
+      "relationshipName": "purchaseQuotation",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

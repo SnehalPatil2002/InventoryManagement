@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity StockRequest.
+    -->
+    <changeSet id="20231006062608-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="raw_material_id"
+                                 baseTableName="stock_request"
+                                 constraintName="fk_stock_request__raw_material_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="raw_material"/>
+
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="stock_request"
+                                 constraintName="fk_stock_request__product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="products"/>
+
+        <addForeignKeyConstraint baseColumnNames="production_line_id"
+                                 baseTableName="stock_request"
+                                 constraintName="fk_stock_request__production_line_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="production_line"/>
+    </changeSet>
+</databaseChangeLog>

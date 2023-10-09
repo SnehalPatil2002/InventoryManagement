@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062607",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "production_line",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ProductionLine",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "products",
+      "ownerSide": true,
+      "relationshipName": "product",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "stockRequest",
+      "otherEntityRelationshipName": "productionLine",
+      "relationshipName": "stockRequest",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "consumptionDetails",
+      "otherEntityRelationshipName": "productionLine",
+      "relationshipName": "consumptionDetails",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -1,0 +1,58 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062554",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "raw_material",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "barcode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "unitPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "unitMeasure",
+      "fieldType": "Unit",
+      "fieldValues": "UNIT,KG,METRE"
+    },
+    {
+      "fieldName": "gstPercentage",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "reorderPoint",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RawMaterial",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productRawMaterials",
+      "otherEntityRelationshipName": "rawMaterial",
+      "relationshipName": "productRawMaterials",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "warehouse",
+      "otherEntityRelationshipName": "rawMaterial",
+      "relationshipName": "warehouse",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

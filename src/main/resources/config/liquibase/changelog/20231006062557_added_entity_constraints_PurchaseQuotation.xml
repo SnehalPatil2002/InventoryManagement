@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity PurchaseQuotation.
+    -->
+    <changeSet id="20231006062557-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="clients_id"
+                                 baseTableName="purchase_quotation"
+                                 constraintName="fk_purchase_quotation__clients_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="clients"/>
+    </changeSet>
+</databaseChangeLog>

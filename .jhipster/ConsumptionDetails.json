@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062605",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "consumption_details",
+  "fields": [
+    {
+      "fieldName": "quantityConsumed",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "scrapGenerated",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ConsumptionDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "projects",
+      "otherEntityRelationshipName": "consumptionDetails",
+      "relationshipName": "project",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "products",
+      "otherEntityRelationshipName": "consumptionDetails",
+      "relationshipName": "product",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "productionLine",
+      "otherEntityRelationshipName": "consumptionDetails",
+      "relationshipName": "productionLine",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

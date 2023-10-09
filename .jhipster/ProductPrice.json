@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062606",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "product_price",
+  "fields": [
+    {
+      "fieldName": "rawMaterialCost",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "manufacturingCost",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "labourCost",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ProductPrice",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "projects",
+      "otherEntityRelationshipName": "productPrice",
+      "relationshipName": "project",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "products",
+      "otherEntityRelationshipName": "productPrice",
+      "relationshipName": "product",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

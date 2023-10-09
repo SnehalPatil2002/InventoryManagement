@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062555",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "warehouse",
+  "fields": [
+    {
+      "fieldName": "whName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pincode",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "managerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "managerEmail",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Warehouse",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "rawMaterial",
+      "otherEntityRelationshipName": "warehouse",
+      "relationshipName": "rawMaterial",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

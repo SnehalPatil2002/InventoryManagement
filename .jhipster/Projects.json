@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062602",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "projects",
+  "fields": [
+    {
+      "fieldName": "projectName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "orderQuantity",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "finalTotal",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Projects",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "products",
+      "otherEntityRelationshipName": "project",
+      "relationshipName": "products",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "consumptionDetails",
+      "otherEntityRelationshipName": "project",
+      "relationshipName": "consumptionDetails",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "productPrice",
+      "otherEntityRelationshipName": "project",
+      "relationshipName": "productPrice",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

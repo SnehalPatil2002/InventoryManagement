@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062556",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "clients",
+  "fields": [
+    {
+      "fieldName": "sname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "semail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "companyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "companyContactNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pinCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientType",
+      "fieldType": "ClientType",
+      "fieldValues": "SUPPLIER (Supplier),CONSUMER (Consumer),BOTH (Both),OTHER (Other)"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "not an ignored comment",
+  "jpaMetamodelFiltering": false,
+  "name": "Clients",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "salesOrderd",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "salesOrderd",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

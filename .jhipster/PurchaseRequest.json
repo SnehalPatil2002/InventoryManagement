@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006062600",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "purchase_request",
+  "fields": [
+    {
+      "fieldName": "qtyRequired",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "requestDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "expectedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "REQUESTED (Requested),APPROVED (Approved),CANCELED (Canceled),RECEIVED (Received),COMPLETED (Completed)"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PurchaseRequest",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "rawMaterial",
+      "ownerSide": true,
+      "relationshipName": "rawMaterial",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
