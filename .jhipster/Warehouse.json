@@ -35,13 +35,6 @@
   "name": "Warehouse",
   "pagination": "pagination",
   "readOnly": false,
-  "relationships": [
-    {
-      "otherEntityName": "rawMaterial",
-      "otherEntityRelationshipName": "warehouse",
-      "relationshipName": "rawMaterial",
-      "relationshipType": "one-to-many"
-    }
-  ],
+  "relationships": [],
   "service": "serviceClass"
 }

@@ -1,9 +1,6 @@
 package com.mycompany.myapp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.*;
 
 /**
@@ -38,10 +35,6 @@ public class Warehouse implements Serializable {
 
     @Column(name = "manager_email")
     private String managerEmail;
-
-    @OneToMany(mappedBy = "warehouse")
-    @JsonIgnoreProperties(value = { "productRawMaterials", "warehouse" }, allowSetters = true)
-    private Set<RawMaterial> rawMaterials = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -134,37 +127,6 @@ public class Warehouse implements Serializable {
 
     public void setManagerEmail(String managerEmail) {
         this.managerEmail = managerEmail;
-    }
-
-    public Set<RawMaterial> getRawMaterials() {
-        return this.rawMaterials;
-    }
-
-    public void setRawMaterials(Set<RawMaterial> rawMaterials) {
-        if (this.rawMaterials != null) {
-            this.rawMaterials.forEach(i -> i.setWarehouse(null));
-        }
-        if (rawMaterials != null) {
-            rawMaterials.forEach(i -> i.setWarehouse(this));
-        }
-        this.rawMaterials = rawMaterials;
-    }
-
-    public Warehouse rawMaterials(Set<RawMaterial> rawMaterials) {
-        this.setRawMaterials(rawMaterials);
-        return this;
-    }
-
-    public Warehouse addRawMaterial(RawMaterial rawMaterial) {
-        this.rawMaterials.add(rawMaterial);
-        rawMaterial.setWarehouse(this);
-        return this;
-    }
-
-    public Warehouse removeRawMaterial(RawMaterial rawMaterial) {
-        this.rawMaterials.remove(rawMaterial);
-        rawMaterial.setWarehouse(null);
-        return this;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

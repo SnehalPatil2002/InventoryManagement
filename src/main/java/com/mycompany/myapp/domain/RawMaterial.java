@@ -49,7 +49,6 @@ public class RawMaterial implements Serializable {
     private Set<ProductRawMaterials> productRawMaterials = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "rawMaterials" }, allowSetters = true)
     private Warehouse warehouse;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

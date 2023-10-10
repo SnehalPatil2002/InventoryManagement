@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * A ProductRawMaterials. This is domian file
+ * A ProductRawMaterials.
  */
 @Entity
 @Table(name = "product_raw_materials")

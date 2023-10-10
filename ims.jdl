@@ -1,16 +1,16 @@
 
 entity RawMaterial {
-	 name String
-     barcode String 
-     quantity Long
-     unitPrice Double
-     unitMeasure Unit
-     gstPercentage Double 
-     reorderPoint Long 
+    name String
+    barcode String
+    quantity Long
+    unitPrice Double
+    unitMeasure Unit
+    gstPercentage Double
+    reorderPoint Long
 }
 
 entity Warehouse {
-	whName String
+    whName String
     address String
     pincode Long
     city String
@@ -21,19 +21,19 @@ entity Warehouse {
 // an ignored comment
 /** not an ignored comment */
 entity Clients {
-	sname String
-	semail String
+    sname String
+    semail String
     mobileNo Long
     companyName String
     companyContactNo Long
     address String
-	pinCode String
-	city String
+    pinCode String
+    city String
     clientType ClientType
 }
 
 entity PurchaseQuotation {
-	referenceNumber String
+    referenceNumber String
     totalPOAmount Double
     totalGSTAmount Double
     poDate Instant
@@ -42,7 +42,7 @@ entity PurchaseQuotation {
 }
 
 entity PurchaseQuotationDetails {
-	qtyOrdered Long
+    qtyOrdered Long
     gstTaxPercentage Integer
     pricePerUnit Double
     totalPrice Double
@@ -50,18 +50,18 @@ entity PurchaseQuotationDetails {
 }
 
 entity OrderRecieved {
-	referenceNumber String
+    referenceNumber String
     orDate Instant
     qtyOrdered Long
     qtyRecieved Long
     manufacturingDate Instant
-	expiryDate Instant
+    expiryDate Instant
     qtyApproved Long
     qtyRejected Long
 }
 
 entity PurchaseRequest{
-	qtyRequired Long
+    qtyRequired Long
     requestDate Instant
     expectedDate Instant
     status Status
@@ -69,15 +69,15 @@ entity PurchaseRequest{
 
 
 entity SalesOrderd {
-	orderDate Instant
-	quantitySold Long
+    orderDate Instant
+    quantitySold Long
     unitPrice Double
     gstPercentage Double
     totalRevenue Double
     status DeliveryStatus
 }
 entity Projects{
-	projectName String
+    projectName String
     startDate Instant
     endDate Instant
     orderQuantity Long
@@ -85,32 +85,32 @@ entity Projects{
 }
 
 entity Products{
-	productName String
+    productName String
     totalPrice Double
     availableQty Double
 }
 
 entity ProductRawMaterials{
-	quantityRequired Long
+    quantityRequired Long
 }
 
 entity ConsumptionDetails{
-	quantityConsumed Double
+    quantityConsumed Double
     scrapGenerated Double
 }
 
 entity ProductPrice{
-	rawMaterialCost Double
+    rawMaterialCost Double
     manufacturingCost Double
     labourCost Double
 }
 
 entity ProductionLine{
-	description String
-    isActive Boolean 
+    description String
+    isActive Boolean
 }
 entity StockRequest{
-	qtyRequired Double
+    qtyRequired Double
     reqDate Instant
     isProd Boolean
     status Status
@@ -120,7 +120,7 @@ enum Unit {
 }
 
 enum Status{
-	REQUESTED(Requested),
+    REQUESTED(Requested),
     APPROVED(Approved),
     CANCELED(Canceled),
     RECEIVED(Received),
@@ -128,21 +128,21 @@ enum Status{
 }
 
 enum ClientType{
-	SUPPLIER(Supplier),
+    SUPPLIER(Supplier),
     CONSUMER(Consumer),
     BOTH(Both),
     OTHER(Other)
 }
 
 enum DeliveryStatus{
-	ORDERED, SHIPPED, DELIVERED
+    ORDERED, SHIPPED, DELIVERED
 }
 
 relationship OneToOne {
-	ProductionLine{product} to Products
-    StockRequest{rawMaterial} to RawMaterial 
-    StockRequest{product} to Products   
-	PurchaseRequest{rawMaterial} to RawMaterial
+    ProductionLine{product} to Products
+    StockRequest{rawMaterial} to RawMaterial
+    StockRequest{product} to Products
+    PurchaseRequest{rawMaterial} to RawMaterial
 }
 
 //relationship ManyToMany {
@@ -151,23 +151,23 @@ relationship OneToOne {
 
 // defining multiple OneToMany relationships with comments
 relationship OneToMany {
-	PurchaseQuotation to PurchaseQuotationDetails{purchaseQuotation}
+    PurchaseQuotation to PurchaseQuotationDetails{purchaseQuotation}
     PurchaseQuotation to OrderRecieved{purchaseQuotation}
-    Products{productRawMaterials} to ProductRawMaterials{products}
-    RawMaterial{productRawMaterials} to ProductRawMaterials{rawMaterial}
-    Warehouse{rawMaterial} to RawMaterial{warehouse}
+    Products to ProductRawMaterials{products}
+    RawMaterial to ProductRawMaterials{rawMaterial}
     Projects{products} to Products{project}
     Clients{salesOrderd} to SalesOrderd{client}
-    Projects to ConsumptionDetails{project}
-    Products to ConsumptionDetails{product}
-    Projects to ProductPrice{project}
-    Products to ProductPrice{product}
+    Projects to ConsumptionDetails{projects}
+    Products to ConsumptionDetails{products}
+    Projects to ProductPrice{projects}
+    Products to ProductPrice{products}
     ProductionLine to StockRequest{productionLine}
     ProductionLine to ConsumptionDetails{productionLine}
 }
 
 relationship ManyToOne {
-	PurchaseQuotation{clients} to Clients
+    PurchaseQuotation{clients} to Clients
+    RawMaterial{warehouse} to Warehouse
 }
 
 // Set pagination options

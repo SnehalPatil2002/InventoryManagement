@@ -49,7 +49,6 @@
     },
     {
       "otherEntityName": "warehouse",
-      "otherEntityRelationshipName": "rawMaterial",
       "relationshipName": "warehouse",
       "relationshipType": "many-to-one"
     }
