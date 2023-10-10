@@ -11,7 +11,34 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062554_added_entity_RawMaterial.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062555_added_entity_Warehouse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062556_added_entity_Clients.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062557_added_entity_PurchaseQuotation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062558_added_entity_PurchaseQuotationDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062559_added_entity_OrderRecieved.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062600_added_entity_PurchaseRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062601_added_entity_SalesOrderd.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062602_added_entity_Projects.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062603_added_entity_Products.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062604_added_entity_ProductRawMaterials.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062605_added_entity_ConsumptionDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062606_added_entity_ProductPrice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062607_added_entity_ProductionLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062608_added_entity_StockRequest.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20231006062554_added_entity_constraints_RawMaterial.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062557_added_entity_constraints_PurchaseQuotation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062558_added_entity_constraints_PurchaseQuotationDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062559_added_entity_constraints_OrderRecieved.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062600_added_entity_constraints_PurchaseRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062601_added_entity_constraints_SalesOrderd.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062603_added_entity_constraints_Products.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062604_added_entity_constraints_ProductRawMaterials.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062605_added_entity_constraints_ConsumptionDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062606_added_entity_constraints_ProductPrice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062607_added_entity_constraints_ProductionLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231006062608_added_entity_constraints_StockRequest.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
